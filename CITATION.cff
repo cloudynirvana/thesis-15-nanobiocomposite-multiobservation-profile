@@ -1,0 +1,44 @@
+cff-version: 1.2.0
+message: "If you cite this computational research thesis, please use the metadata below. No DOI is minted here; do not invent one."
+type: thesis
+title: "Encoding a compartmental AgNP-exosome-Raman theranostic concept as a multi-observation Disease Profile research object"
+authors:
+  - family-names: Ogbonna
+    given-names: Kelechi Emeka
+    email: kelechiogbonna300@gmail.com
+    alias: cloudynirvana
+abstract: >-
+  Nanobiocomposite proposals often fuse photothermal/ROS, exosome delivery,
+  and Raman sensing into one platform story; without named observation
+  channels and refusal rules, those layers collapse into a single
+  "nanotherapy works" claim. The concept is encoded as a Disease Profile
+  with three channels and an empty therapeutic parameter list. On a toy
+  linear map the legal Fisher rank is 3 of 3. A merged symbol theta has
+  rank 1 of 1 and a closed profile at 1.060, against a damage coefficient
+  of 0.42. A product of reporter gain and damage coefficient has a flat
+  profile along the hyperbola. Not a medical device.
+keywords:
+  - Disease Profile
+  - observation channel
+  - silver nanoparticle
+  - exosome
+  - surface-enhanced Raman spectroscopy
+  - theranostic concept
+  - non-parameter
+  - profile likelihood
+  - research object
+  - research-only
+license: MIT
+date-released: "2026-09-21"
+url: "https://github.com/cloudynirvana/thesis-15-nanobiocomposite-multiobservation-profile"
+repository-code: "https://github.com/cloudynirvana/thesis-15-nanobiocomposite-multiobservation-profile"
+preferred-citation:
+  type: thesis
+  title: "Encoding a compartmental AgNP-exosome-Raman theranostic concept as a multi-observation Disease Profile research object"
+  authors:
+    - family-names: Ogbonna
+      given-names: Kelechi Emeka
+  year: 2026
+  month: 9
+  url: "https://github.com/cloudynirvana/thesis-15-nanobiocomposite-multiobservation-profile"
+  notes: "Thesis #15 (R4). Computational research. Multi-observation profile of a concept, not a device and not a dose. No document DOI."

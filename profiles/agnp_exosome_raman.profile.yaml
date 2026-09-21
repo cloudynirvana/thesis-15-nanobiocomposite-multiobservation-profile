@@ -1,0 +1,118 @@
+schema_version: "1.1.0-multiobs"
+profile_id: dp-agnp-exo-raman-concept-001
+extends:
+  object: DiseaseProfile
+  schema_version: "1.0.0"
+  source: "Thesis #3 Disease Profile contract. This file adds observation channels. It does not edit that contract."
+disease_id: solid-tumour-class-unspecified
+disease_label: "Unspecified solid-tumour class, the usual target label of a fused platform story"
+created_at: "2026-09-21T00:00:00Z"
+asker_role: methods_researcher
+answers:
+  - id: Q1
+    question: "Who is asking?"
+    label: "A methods researcher encoding a compartmental concept"
+  - id: Q2
+    question: "Which disease, not a generic cancer slogan?"
+    label: "An unspecified solid-tumour class. No person and no stage."
+  - id: Q3
+    question: "What is the current regime?"
+    label: "An in-vitro concept. No clinical regime is asserted."
+  - id: Q4
+    question: "Where is the system stuck?"
+    label: "Photothermal or ROS action, exosome delivery, and Raman sensing are told as one platform story."
+observables:
+  - id: obs-sers-exosome
+    statement: "Individual exosome-like vesicles have been identified by surface-enhanced Raman spectroscopy in published experiments."
+    citation_ids: [cit-stremersch-2016]
+  - id: obs-photothermal-ag
+    statement: "Chitosan-coated triangular silver nanoparticles have been reported as photothermal transducers in an in-vitro cell assay."
+    citation_ids: [cit-boca-2011]
+  - id: obs-exosome-carrier
+    statement: "Tumour exosome-based nanoparticles have been reported as drug carriers in a chemotherapy study."
+    citation_ids: [cit-yong-2019]
+observation_channels:
+  - channel_id: ch_sers
+    name: "SERS or Raman reporter"
+    symbol: y_R
+    map_coefficient: rho
+    observes: "A declared spectral contrast or reporter occupancy"
+    parameter_status: not_in_theta
+    refusal: "Spectral contrast stays out of the damage coefficient and out of any dose."
+  - channel_id: ch_exosome
+    name: "Exosome compartment label"
+    symbol: y_E
+    map_coefficient: lambda
+    observes: "A score of cargo in the medium compartment or the cell-associated compartment"
+    parameter_status: not_in_theta
+    refusal: "A tropism sentence stays out of a delivery-rate parameter."
+  - channel_id: ch_damage
+    name: "Photothermal or ROS assay readout"
+    symbol: y_D
+    map_coefficient: kappa
+    observes: "A temperature or ROS assay number from a declared in-vitro setup"
+    parameter_status: not_in_theta
+    refusal: "An assay number stays out of a laser protocol and out of an infused dose."
+candidate_mechanisms:
+  - id: M-SPLIT-MAPS
+    statement: "Reporter gain, compartment score, and damage-assay coefficient are three symbols."
+    evidence_class: structural_calculation
+    falsifier: "A preparation series whose reporter loading, compartment indicator, and damage loading are not the same vector, and whose three readouts nevertheless share one coefficient within error."
+    status: admitted
+  - id: M-PLATFORM-WORKS
+    statement: "The AgNP-exosome-Raman platform works as nanotherapy."
+    evidence_class: knowledge
+    falsifier: ""
+    status: refused
+    refusal_rule: "Empty falsifier and a therapeutic prediction."
+non_parameters:
+  - id: merged_sensing_killing_theta
+    statement: "One symbol used as the Raman gain and as the damage coefficient."
+  - id: raman_peak_as_kill_coefficient
+    statement: "A Raman peak height copied into a killing coefficient."
+  - id: exosome_tropism_as_delivery_rate
+    statement: "A sentence about tumour tropism written as a delivery rate."
+  - id: spr_peak_as_anticancer_efficacy
+    statement: "A surface-plasmon peak from green synthesis treated as anticancer efficacy."
+  - id: laser_fluence_or_infusion
+    statement: "A laser fluence or an infusion written as a parameter of this object."
+  - id: theranostic_label
+    statement: "The word theranostic used as a quantity."
+theta: []
+admitted_hypotheses:
+  - id: H-SPLIT-CHANNELS-001
+    statement: "A Raman reporter gain and a damage-assay coefficient are different symbols, and neither is a therapeutic parameter of this profile."
+    falsifier: "Preparations in which the reporter loading and the damage loading are not proportional, if the two readouts then collapse to one coefficient."
+    parameter_status: forbidden_to_enter_theta
+citations:
+  - id: cit-ahmed-2016
+    vancouver: "Ahmed S, Ahmad M, Swami BL, Ikram S. A review on plants extract mediated synthesis of silver nanoparticles for antimicrobial applications: a green expertise. J Adv Res. 2016;7(1):17-28."
+    doi: "10.1016/j.jare.2015.02.007"
+  - id: cit-boca-2011
+    vancouver: "Boca SC, Potara M, Gabudean AM, Juhem A, Baldeck PL, Astilean S. Chitosan-coated triangular silver nanoparticles as a novel class of biocompatible, highly effective photothermal transducers for in vitro cancer cell therapy. Cancer Lett. 2011;311(2):131-140."
+    doi: "10.1016/j.canlet.2011.06.022"
+  - id: cit-kalluri-2020
+    vancouver: "Kalluri R, LeBleu VS. The biology, function, and biomedical applications of exosomes. Science. 2020;367(6478):eaau6977."
+    doi: "10.1126/science.aau6977"
+  - id: cit-thery-2018
+    vancouver: "Théry C, Witwer KW, Aikawa E, Alcaraz MJ, Anderson JD, Andriantsitohaina R, et al. Minimal information for studies of extracellular vesicles 2018 (MISEV2018): a position statement of the International Society for Extracellular Vesicles and update of the MISEV2014 guidelines. J Extracell Vesicles. 2018;7(1):1535750."
+    doi: "10.1080/20013078.2018.1535750"
+  - id: cit-yong-2019
+    vancouver: "Yong T, Zhang X, Bie N, Zhang H, Zhang X, Li F, et al. Tumor exosome-based nanoparticles are efficient drug carriers for chemotherapy. Nat Commun. 2019;10:3838."
+    doi: "10.1038/s41467-019-11718-4"
+  - id: cit-lane-2015
+    vancouver: "Lane LA, Qian X, Nie S. SERS nanoparticles in medicine: from label-free detection to spectroscopic tagging. Chem Rev. 2015;115(19):10489-10529."
+    doi: "10.1021/acs.chemrev.5b00265"
+  - id: cit-stremersch-2016
+    vancouver: "Stremersch S, Marro M, Pinchasik BE, Baatsen P, Hendrix A, De Smedt SC, et al. Identification of individual exosome-like vesicles by surface enhanced Raman spectroscopy. Small. 2016;12(24):3292-3301."
+    doi: "10.1002/smll.201600393"
+  - id: cit-chen-2017
+    vancouver: "Chen H, Zhang W, Zhu G, Xie J, Chen X. Rethinking cancer nanotheranostics. Nat Rev Mater. 2017;2:17024."
+    doi: "10.1038/natrevmats.2017.24"
+  - id: cit-faria-2018
+    vancouver: "Faria M, Björnmalm M, Thurecht KJ, Kent SJ, Parton RG, Kavallaris M, et al. Minimum information reporting in bio-nano experimental literature. Nat Nanotechnol. 2018;13(9):777-785."
+    doi: "10.1038/s41565-018-0246-4"
+  - id: cit-raue-2009
+    vancouver: "Raue A, Kreutz C, Maiwald T, Bachmann J, Schilling M, Klingmüller U, et al. Structural and practical identifiability analysis of partially observed dynamical models by exploiting the profile likelihood. Bioinformatics. 2009;25(15):1923-1929."
+    doi: "10.1093/bioinformatics/btp358"
+disclaimer: "Research object. Not a medical device, not clinical decision support, not a diagnostic, not a dose, and not a cure. No document DOI."

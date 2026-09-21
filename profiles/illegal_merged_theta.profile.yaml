@@ -1,0 +1,76 @@
+schema_version: "1.1.0-multiobs"
+profile_id: dp-agnp-exo-raman-illegal-merge-001
+extends:
+  object: DiseaseProfile
+  schema_version: "1.0.0"
+  source: "Counterexample. Same shell as the legal profile, with sensing and killing forced into one symbol."
+disease_id: solid-tumour-class-unspecified
+disease_label: "Unspecified solid-tumour class, the usual target label of a fused platform story"
+created_at: "2026-09-21T00:00:00Z"
+asker_role: methods_researcher
+answers:
+  - id: Q1
+    question: "Who is asking?"
+    label: "A methods researcher encoding a compartmental concept"
+  - id: Q2
+    question: "Which disease, not a generic cancer slogan?"
+    label: "An unspecified solid-tumour class. No person and no stage."
+  - id: Q3
+    question: "What is the current regime?"
+    label: "An in-vitro concept. No clinical regime is asserted."
+  - id: Q4
+    question: "Where is the system stuck?"
+    label: "Photothermal or ROS action, exosome delivery, and Raman sensing are told as one platform story."
+observables:
+  - id: obs-sers-exosome
+    statement: "Individual exosome-like vesicles have been identified by surface-enhanced Raman spectroscopy in published experiments."
+    citation_ids: [cit-stremersch-2016]
+  - id: obs-photothermal-ag
+    statement: "Chitosan-coated triangular silver nanoparticles have been reported as photothermal transducers in an in-vitro cell assay."
+    citation_ids: [cit-boca-2011]
+observation_channels:
+  - channel_id: ch_sers
+    name: "SERS or Raman reporter"
+    symbol: theta_theranostic
+    map_coefficient: theta_theranostic
+    observes: "Raman intensity used as the platform parameter"
+    parameter_status: in_theta
+    refusal: "Removed. The channel is the parameter."
+  - channel_id: ch_exosome
+    name: "Exosome compartment label"
+    symbol: theta_theranostic
+    map_coefficient: theta_theranostic
+    observes: "Compartment score used as the platform parameter"
+    parameter_status: in_theta
+    refusal: "Removed. The channel is the parameter."
+  - channel_id: ch_damage
+    name: "Photothermal or ROS assay readout"
+    symbol: theta_theranostic
+    map_coefficient: theta_theranostic
+    observes: "Damage assay used as the platform parameter"
+    parameter_status: in_theta
+    refusal: "Removed. The channel is the parameter."
+candidate_mechanisms:
+  - id: M-PLATFORM-WORKS
+    statement: "The AgNP-exosome-Raman platform works as nanotherapy."
+    evidence_class: knowledge
+    falsifier: ""
+    status: admitted
+non_parameters:
+  - id: spr_peak_as_anticancer_efficacy
+    statement: "A surface-plasmon peak from green synthesis treated as anticancer efficacy."
+theta:
+  - theta_theranostic
+admitted_hypotheses:
+  - id: H-ONE-THETA-001
+    statement: "A single theranostic parameter accounts for Raman sensing and for killing."
+    falsifier: "A preparation series in which the two readouts diverge."
+    parameter_status: entered_theta
+citations:
+  - id: cit-boca-2011
+    vancouver: "Boca SC, Potara M, Gabudean AM, Juhem A, Baldeck PL, Astilean S. Chitosan-coated triangular silver nanoparticles as a novel class of biocompatible, highly effective photothermal transducers for in vitro cancer cell therapy. Cancer Lett. 2011;311(2):131-140."
+    doi: "10.1016/j.canlet.2011.06.022"
+  - id: cit-stremersch-2016
+    vancouver: "Stremersch S, Marro M, Pinchasik BE, Baatsen P, Hendrix A, De Smedt SC, et al. Identification of individual exosome-like vesicles by surface enhanced Raman spectroscopy. Small. 2016;12(24):3292-3301."
+    doi: "10.1002/smll.201600393"
+disclaimer: "Research object. Not a medical device, not clinical decision support, not a diagnostic, not a dose, and not a cure. No document DOI."
